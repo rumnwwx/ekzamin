@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Добро пожаловать в магазин</h1>
+    {% if user.is_authenticated %}
+    <a href="{% url 'shop:logout' %}">Выход</a>
+    <a href="{% url 'shop:profile' %}">Профиль</a>
+    <a href="{% url 'shop:catalog' %}">Каталог</a>
+    {% else %}
+    <a href="{% url 'shop:register' %}">Регистрация</a>
+    <a href="{% url 'shop:login' %}">Вход</a>
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

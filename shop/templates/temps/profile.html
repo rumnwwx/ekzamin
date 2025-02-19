@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% block title %}Профиль{% endblock %}
+
+
+{% block content %}
+<h1>Ваш профиль</h1>
+<br>
+{% if user.avatar %}
+    <img src="{{ user.avatar.url }}" alt="Аватар пользователя" style="border-radius: 100%">
+{% else %}
+    <p>Аватар отсутствует</p>
+{% endif %}
+<p>Имя пользователя: {{ user.username }}</p>
+<p>Ваше ФИО: {{ user.name }} {{ user.surname }}</p>
+<p>Ваш email: {{ user.email }}</p>
+{% endblock %}
